@@ -1,0 +1,637 @@
+/*
+NAME : Sarthak Sobti
+*/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Convert
+{
+    long long int n, i, j, dec, decR, bin[20], oct, octR, hex[20], decH[20];
+    string N;
+
+public:
+    void DecToBin();
+    void DecToOct();
+    void DecToHex();
+    void BinToDec();
+    void BinToOct();
+    void BinToHex();
+    void OctToDec();
+    void OctToBin();
+    void OctToHex();
+    void HexToDec();
+    void HexToBin();
+    void HexToOct();
+};
+
+void Convert ::DecToBin()
+{
+    cout << "Enter Decimal number : ";
+    cin >> n;
+
+    i = 0;
+    while (n != 0)
+    {
+        bin[i] = n % 2;
+        n /= 2;
+        i++;
+    }
+
+    cout << "Binary Equivalent : ";
+    for (j = i - 1; j >= 0; j--)
+    {
+        cout << bin[j];
+    }
+
+    cout << endl;
+}
+
+void Convert ::DecToOct()
+{
+    cout << "Enter Decimal number : ";
+    cin >> n;
+
+    octR = 0, oct = 0;
+    while (n != 0)
+    {
+        octR = (octR * 10) + (n % 8);
+        n /= 8;
+    }
+
+    while (octR != 0)
+    {
+        oct = (oct * 10) + (octR % 10);
+        octR /= 10;
+    }
+
+    cout << "Octal Equivalent : " << oct << endl;
+}
+
+void Convert ::DecToHex()
+{
+    cout << "Enter Decimal number : ";
+    cin >> n;
+
+    i = 0;
+    while (n != 0)
+    {
+        hex[i] = n % 16;
+        n /= 16;
+        i++;
+    }
+
+    cout << "HexaDecimal Equivalent : ";
+    for (int j = i - 1; j >= 0; j--)
+    {
+        if (hex[j] == 10)
+        {
+            cout << 'A';
+        }
+
+        else if (hex[j] == 11)
+        {
+            cout << 'B';
+        }
+
+        else if (hex[j] == 12)
+        {
+            cout << 'C';
+        }
+
+        else if (hex[j] == 13)
+        {
+            cout << 'D';
+        }
+
+        else if (hex[j] == 14)
+        {
+            cout << 'E';
+        }
+
+        else if (hex[j] == 15)
+        {
+            cout << 'F';
+        }
+
+        else
+        {
+            cout << hex[j];
+        }
+    }
+
+    cout << endl;
+}
+
+void Convert ::BinToDec()
+{
+    cout << "Enter Binary number : ";
+    cin >> n;
+
+    dec = 0, i = 0;
+    while (n != 0)
+    {
+        dec = dec + (n % 10) * pow(2, i);
+        n /= 10;
+        i++;
+    }
+
+    cout << "Decimal Equivalent : " << dec << endl;
+}
+
+void Convert ::BinToOct()
+{
+    cout << "Enter Binary number : ";
+    cin >> n;
+
+    dec = 0, i = 0;
+    while (n != 0)
+    {
+        dec = dec + (n % 10) * pow(2, i);
+        n /= 10;
+        i++;
+    }
+
+    octR = 0, oct = 0;
+    while (dec != 0)
+    {
+        octR = (octR * 10) + (dec % 8);
+        dec /= 8;
+    }
+
+    while (octR != 0)
+    {
+        oct = (oct * 10) + (octR % 10);
+        octR /= 10;
+    }
+
+    cout << "Octal Equivalent : " << oct << endl;
+}
+
+void Convert ::BinToHex()
+{
+    cout << "Enter Binary number : ";
+    cin >> n;
+
+    dec = 0, i = 0;
+    while (n != 0)
+    {
+        dec = dec + (n % 10) * pow(2, i);
+        n /= 10;
+        i++;
+    }
+
+    i = 0;
+    while (dec != 0)
+    {
+        hex[i] = dec % 16;
+        dec /= 16;
+        i++;
+    }
+
+    cout << "HexaDecimal Equivalent : ";
+    for (int j = i - 1; j >= 0; j--)
+    {
+        if (hex[j] == 10)
+        {
+            cout << 'A';
+        }
+
+        else if (hex[j] == 11)
+        {
+            cout << 'B';
+        }
+
+        else if (hex[j] == 12)
+        {
+            cout << 'C';
+        }
+
+        else if (hex[j] == 13)
+        {
+            cout << 'D';
+        }
+
+        else if (hex[j] == 14)
+        {
+            cout << 'E';
+        }
+
+        else if (hex[j] == 15)
+        {
+            cout << 'F';
+        }
+
+        else
+        {
+            cout << hex[j];
+        }
+    }
+
+    cout << endl;
+}
+
+void Convert ::OctToDec()
+{
+    cout << "Enter Octal number : ";
+    cin >> n;
+
+    dec = 0, i = 0;
+    while (n != 0)
+    {
+        dec = dec + (n % 10) * pow(8, i);
+        n /= 10;
+        i++;
+    }
+
+    cout << "Decimal Equivalent : " << dec << endl;
+}
+
+void Convert ::OctToBin()
+{
+    cout << "Enter Octal number : ";
+    cin >> n;
+
+    dec = 0, i = 0;
+    while (n != 0)
+    {
+        dec = dec + (n % 10) * pow(8, i);
+        n /= 10;
+        i++;
+    }
+
+    i = 0;
+    while (dec != 0)
+    {
+        bin[i] = dec % 2;
+        dec /= 2;
+        i++;
+    }
+
+    cout << "Binary Equivalent : ";
+    for (j = i - 1; j >= 0; j--)
+    {
+        cout << bin[j];
+    }
+
+    cout << endl;
+}
+
+void Convert ::OctToHex()
+{
+    cout << "Enter Octal number : ";
+    cin >> n;
+
+    dec = 0, i = 0;
+    while (n != 0)
+    {
+        dec = dec + (n % 10) * pow(8, i);
+        n /= 10;
+        i++;
+    }
+
+    i = 0;
+    while (dec != 0)
+    {
+        hex[i] = dec % 16;
+        dec /= 16;
+        i++;
+    }
+
+    cout << "HexaDecimal Equivalent : ";
+    for (int j = i - 1; j >= 0; j--)
+    {
+        if (hex[j] == 10)
+        {
+            cout << 'A';
+        }
+
+        else if (hex[j] == 11)
+        {
+            cout << 'B';
+        }
+
+        else if (hex[j] == 12)
+        {
+            cout << 'C';
+        }
+
+        else if (hex[j] == 13)
+        {
+            cout << 'D';
+        }
+
+        else if (hex[j] == 14)
+        {
+            cout << 'E';
+        }
+
+        else if (hex[j] == 15)
+        {
+            cout << 'F';
+        }
+
+        else
+        {
+            cout << hex[j];
+        }
+    }
+
+    cout << endl;
+}
+
+void Convert ::HexToDec()
+{
+    cout << "Enter HexaDecimal number : ";
+    cin >> N;
+
+    int x = N.length();
+    i = 0;
+    while (i != x)
+    {
+        if (N.at(i) == 'A')
+        {
+            decH[i] = 10;
+        }
+
+        else if (N.at(i) == 'B')
+        {
+            decH[i] = 11;
+        }
+
+        else if (N.at(i) == 'C')
+        {
+            decH[i] = 12;
+        }
+
+        else if (N.at(i) == 'D')
+        {
+            decH[i] = 13;
+        }
+
+        else if (N.at(i) == 'E')
+        {
+            decH[i] = 14;
+        }
+
+        else if (N.at(i) == 'F')
+        {
+            decH[i] = 15;
+        }
+
+        else
+        {
+            decH[i] = (int)N.at(i) - 48;
+        }
+
+        i++;
+    }
+
+    dec = 0, i = 0;
+    while (x != 0)
+    {
+        x--;
+        dec += (decH[x] * pow(16, i));
+        i++;
+    }
+
+    cout << "Decimal Equivalent : " << dec << endl;
+}
+
+void Convert ::HexToBin()
+{
+    cout << "Enter HexaDecimal number : ";
+    cin >> N;
+
+    int x = N.length();
+    i = 0;
+    while (i != x)
+    {
+        if (N.at(i) == 'A')
+        {
+            decH[i] = 10;
+        }
+
+        else if (N.at(i) == 'B')
+        {
+            decH[i] = 11;
+        }
+
+        else if (N.at(i) == 'C')
+        {
+            decH[i] = 12;
+        }
+
+        else if (N.at(i) == 'D')
+        {
+            decH[i] = 13;
+        }
+
+        else if (N.at(i) == 'E')
+        {
+            decH[i] = 14;
+        }
+
+        else if (N.at(i) == 'F')
+        {
+            decH[i] = 15;
+        }
+
+        else
+        {
+            decH[i] = (int)N.at(i) - 48;
+        }
+
+        i++;
+    }
+
+    dec = 0, i = 0;
+    while (x != 0)
+    {
+        x--;
+        dec += (decH[x] * pow(16, i));
+        i++;
+    }
+
+    i = 0;
+    while (dec != 0)
+    {
+        bin[i] = dec % 2;
+        dec /= 2;
+        i++;
+    }
+
+    cout << "Binary Equivalent : ";
+    for (j = i - 1; j >= 0; j--)
+    {
+        cout << bin[j];
+    }
+
+    cout << endl;
+}
+
+void Convert ::HexToOct()
+{
+    cout << "Enter HexaDecimal number : ";
+    cin >> N;
+
+    int x = N.length();
+    i = 0;
+    while (i != x)
+    {
+        if (N.at(i) == 'A')
+        {
+            decH[i] = 10;
+        }
+
+        else if (N.at(i) == 'B')
+        {
+            decH[i] = 11;
+        }
+
+        else if (N.at(i) == 'C')
+        {
+            decH[i] = 12;
+        }
+
+        else if (N.at(i) == 'D')
+        {
+            decH[i] = 13;
+        }
+
+        else if (N.at(i) == 'E')
+        {
+            decH[i] = 14;
+        }
+
+        else if (N.at(i) == 'F')
+        {
+            decH[i] = 15;
+        }
+
+        else
+        {
+            decH[i] = (int)N.at(i) - 48;
+        }
+
+        i++;
+    }
+
+    dec = 0, i = 0;
+    while (x != 0)
+    {
+        x--;
+        dec += (decH[x] * pow(16, i));
+        i++;
+    }
+
+    octR = 0, oct = 0;
+    while (dec != 0)
+    {
+        octR = (octR * 10) + (dec % 8);
+        dec /= 8;
+    }
+
+    while (octR != 0)
+    {
+        oct = (oct * 10) + (octR % 10);
+        octR /= 10;
+    }
+
+    cout << "Octal Equivalent : " << oct << endl;
+}
+
+int main()
+{
+    int n, ch;
+
+    Convert ob;
+
+    do
+    {
+        cout << endl
+             << "****** NUMBER SYSTEM CONVERTER ******" << endl
+             << endl;
+        cout << "1. Decimal To Binary" << endl;
+        cout << "2. Decimal To Octal" << endl;
+        cout << "3. Decimal To HexaDecimal" << endl;
+        cout << "4. Binary To Decimal" << endl;
+        cout << "5. Binary To Octal" << endl;
+        cout << "6. Binary To HexaDecimal" << endl;
+        cout << "7. Octal To Decimal" << endl;
+        cout << "8. Octal To Binary" << endl;
+        cout << "9. Octal To HexaDecimal" << endl;
+        cout << "10. HexaDecimal To Decimal" << endl;
+        cout << "11. HexaDecimal To Binary" << endl;
+        cout << "12. HexaDecimal To Octal" << endl;
+        cout << "13. EXIT" << endl;
+        cout << "Enter your choice : ";
+        cin >> ch;
+
+        switch (ch)
+        {
+        case 1:
+            ob.DecToBin();
+            cout << "\n\n";
+            break;
+
+        case 2:
+            ob.DecToOct();
+            cout << "\n\n";
+            break;
+
+        case 3:
+            ob.DecToHex();
+            cout << "\n\n";
+            break;
+
+        case 4:
+            ob.BinToDec();
+            cout << "\n\n";
+            break;
+
+        case 5:
+            ob.BinToOct();
+            cout << "\n\n";
+            break;
+
+        case 6:
+            ob.BinToHex();
+            cout << "\n\n";
+            break;
+
+        case 7:
+            ob.OctToDec();
+            cout << "\n\n";
+            break;
+
+        case 8:
+            ob.OctToBin();
+            cout << "\n\n";
+            break;
+
+        case 9:
+            ob.OctToHex();
+            cout << "\n\n";
+            break;
+
+        case 10:
+            ob.HexToDec();
+            cout << "\n\n";
+            break;
+
+        case 11:
+            ob.HexToBin();
+            cout << "\n\n";
+            break;
+
+        case 12:
+            ob.HexToOct();
+            cout << "\n\n";
+            break;
+        }
+    } while (ch != 13);
+
+    return 0;
+}
